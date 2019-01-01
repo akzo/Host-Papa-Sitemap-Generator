@@ -1,6 +1,7 @@
 # establishing ftp connection
 # link to the api
 from ftplib import FTP
+import os
 
 def upload_to_hostPapa(ftpHost, account, password, sitemapName):
     
@@ -14,13 +15,15 @@ def upload_to_hostPapa(ftpHost, account, password, sitemapName):
 
     print('Sitemap was successfully uploaded')
     
+def createSiteMap(website):
+    os.system("python python-sitemap\\main.py --domain %s --output sitemap.xml --debug" % website);
 
 
-
-
+website = input('Enter a link for the website: ')
 ftpLink = input('Enter ftp link: ')
 ftpAccount = input('Enter ftp account: ')
 ftpPassword = input('Enter ftp password: ')
-upload_to_hostPapa(ftpLink, ftpAccount, ftpPassword, 'a.txt')
+createSiteMap(website)
+upload_to_hostPapa(ftpLink, ftpAccount, ftpPassword, "sitemap.xml")
 
 
