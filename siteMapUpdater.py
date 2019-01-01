@@ -16,7 +16,7 @@ def upload_to_hostPapa(ftpHost, account, password, sitemapName):
     print('Sitemap was successfully uploaded')
     
 def createSiteMap(website):
-    os.system("python python-sitemap\\main.py --domain %s --output sitemap.xml --debug" % website);
+    os.system("python mySiteMap\\main.py --domain %s --output sitemap.xml --debug" % website);
 
 
 website = input('Enter a link for the website: ')
